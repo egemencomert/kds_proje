@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+
+    <%- include('partials/sidebar', { path: '/seferler' }) %>
+
+        <div class="main-content">
+            <h2 class="fw-bold mb-4 text-white">Yeni Sefer Ekle</h2>
+
+            <div class="card shadow-sm" style="background: #1e293b; border: 1px solid #334155; max-width: 800px;">
+                <div class="card-body p-4">
+                    <form action="/seferler/ekle" method="POST">
+
+                        <div class="mb-3">
+                            <label class="form-label text-secondary">Tır Seçimi</label>
+                            <select name="tir_id" class="form-select bg-dark text-white border-secondary" required>
+                                <option value="">Seçiniz...</option>
+                                <% tirlar.forEach(tir=> { %>
+                                    <option value="<%= tir.ID %>">
+                                        <%= tir.Plaka %> - <%= tir.Model %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary">Kalkış Şehri</label>
+                                <select name="kalkis_id" class="form-select bg-dark text-white border-secondary"
+                                    required>
+                                    <option value="">Seçiniz...</option>
+                                    <% sehirler.forEach(sehir=> { %>
+                                        <option value="<%= sehir.ID %>">
+                                            <%= sehir.Sehir_Adi %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary">Varış Şehri</label>
+                                <select name="varis_id" class="form-select bg-dark text-white border-secondary"
+                                    required>
+                                    <option value="">Seçiniz...</option>
+                                    <% sehirler.forEach(sehir=> { %>
+                                        <option value="<%= sehir.ID %>">
+                                            <%= sehir.Sehir_Adi %>
+                                        </option>
+                                        <% }) %>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary">Sefer Tarihi</label>
+                                <input type="date" name="tarih" class="form-control bg-dark text-white border-secondary"
+                                    required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary">Taşınan Tonaj</label>
+                                <input type="number" step="0.01" name="tonaj"
+                                    class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary">Navlun Bedeli (Gelir)</label>
+                                <input type="number" step="0.01" name="navlun"
+                                    class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary">Yakıt Gideri</label>
+                                <input type="number" step="0.01" name="yakit"
+                                    class="form-control bg-dark text-white border-secondary" required>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary w-100 fw-bold">Kaydet</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

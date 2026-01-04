@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+
+    <%- include('partials/sidebar', { path: '/tirlar' }) %>
+
+        <div class="main-content">
+            <h2 class="fw-bold mb-4 text-white">Tır Filosu ve Performans</h2>
+
+            <div class="row g-4">
+                <% tirlar.forEach(tir=> { %>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="stat-card h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="text-white fw-bold mb-0">
+                                    <%= tir.Plaka %>
+                                </h4>
+                                <span class="badge bg-primary">
+                                    <%= tir.Kapasite_Ton %> Ton
+                                </span>
+                            </div>
+                            <p class="text-secondary small mb-3">
+                                <%= tir.Model %>
+                            </p>
+
+                            <div class="d-flex justify-content-between border-top border-secondary pt-3 mt-2">
+                                <div>
+                                    <small class="text-secondary d-block">Toplam Sefer</small>
+                                    <span class="text-white fw-bold">
+                                        <%= tir.Toplam_Sefer %>
+                                    </span>
+                                </div>
+                                <div>
+                                    <small class="text-secondary d-block">Toplam Kazanç</small>
+                                    <span class="text-success fw-bold">
+                                        <%= formatCurrency(tir.Toplam_Kazanc) %>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+</body>
+
+</html>

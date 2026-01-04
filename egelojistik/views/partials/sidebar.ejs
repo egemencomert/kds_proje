@@ -1,0 +1,12 @@
+<div class="sidebar">
+    <h4 class="text-primary fw-bold mb-4">Ege Lojistik</h4>
+    <nav>
+        <a href="/" class="nav-link-custom <%= path === '/' ? 'active' : '' %>">📊 Dashboard</a>
+        <a href="/rota-analizi" class="nav-link-custom <%= path === '/rota-analizi' ? 'active' : '' %>">📈 Rota
+            Analizi</a>
+        <a href="/seferler" class="nav-link-custom <%= path === '/seferler' ? 'active' : '' %>">🚚 Sefer Listesi</a>
+        <a href="/tirlar" class="nav-link-custom <%= path === '/tirlar' ? 'active' : '' %>">🚛 Tır Filosu</a>
+    </nav>
+    <hr class="text-secondary my-4">
+    <a href="/seferler/ekle" class="btn btn-primary w-100 fw-bold shadow-sm">+ Sefer Ekle</a>
+</div>

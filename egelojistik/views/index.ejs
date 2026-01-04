@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+
+    <%- include('partials/sidebar', { path: '/' }) %>
+
+        <div class="main-content">
+            <h2 class="fw-bold mb-4 text-white">Finansal Özet</h2>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="stat-card border-bottom border-info border-4">
+                        <small class="text-info fw-bold text-uppercase">Toplam Sefer Adedi</small>
+                        <h2 class="fw-bold mt-2 mb-0 text-white">
+                            <%= analiz.toplam_sefer %>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card border-bottom border-primary border-4">
+                        <small class="text-primary fw-bold text-uppercase">Toplam Ciro (Navlun)</small>
+                        <h2 class="fw-bold mt-2 mb-0 text-primary">
+                            <%= formatCurrency(analiz.toplam_ciro || 0) %>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card border-bottom border-success border-4">
+                        <small class="text-success fw-bold text-uppercase">Toplam Net Kar</small>
+                        <h2 class="fw-bold mt-2 mb-0 text-success">
+                            <%= formatCurrency(analiz.toplam_kar || 0) %>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="chart-box">
+                        <h5 class="mb-4 text-secondary text-uppercase" style="font-size: 0.85rem;">Şehir Bazlı Sefer
+                            Yoğunluğu</h5>
+                        <canvas id="sehirSutunChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="chart-box">
+                        <h5 class="mb-4 text-secondary text-uppercase" style="font-size: 0.85rem;">Rota Bazlı Kar
+                            Dağılımı</h5>
+                        <canvas id="rotaPastaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendation-card shadow-lg">
+                <h5 class="text-primary fw-bold mb-3">🚀 Stratejik Karar Destek</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="small text-secondary mb-0">
+                            <strong>🎯 Akıllı Not:</strong> <span class="text-white fw-bold">
+                                <%= en_karli_hat ? en_karli_hat.hat : '---' %>
+                            </span> hattı
+                            en verimli koridor olarak öne çıkıyor. Karlılığı artırmak için operasyonel kapasiteyi bu
+                            yönde değerlendirebilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const sehirData = <% - JSON.stringify(sehir_yogunluk || []) %>;
+            const rotaData = <% - JSON.stringify(rota_kar_verileri || []) %>;
+
+            new Chart(document.getElementById('sehirSutunChart'), {
+                type: 'bar',
+                data: {
+                    labels: sehirData.map(d => d.Sehir_Adi),
+                    datasets: [{
+                        label: 'Sefer Adedi',
+                        data: sehirData.map(d => d.adet),
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, suggestedMax: 30, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
+                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('rotaPastaChart'), {
+                type: 'pie',
+                data: {
+                    labels: rotaData.map(d => d.rota_adi),
+                    datasets: [{
+                        data: rotaData.map(d => d.toplam_kar),
+                        backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8', padding: 20, font: { size: 11 } } }
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>
