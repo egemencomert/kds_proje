@@ -13,18 +13,6 @@ Sistem; araçların teknik durumları, yakıt tüketimi ve rota verimliliği gib
 * **Problem:** Hangi aracın hangi rotada daha verimli olduğunun takip edilememesi ve bakım zamanı gelen araçların sefer sırasında arıza yaparak maliyeti artırması.
 * **KDS Çözümü:** Sistem, geçmiş sefer verilerini analiz ederek rota-araç eşleşmesi önerir, bakım takvimini izler ve sefer bazlı kâr-zarar raporları sunar.
 
-## 📂 Proje Yapısı
-
-```text
-kds_proje/
-├── public/             # CSS, JS ve Görsel dosyaları
-├── views/              # EJS arayüz şablonları
-├── db.js               # MySQL veritabanı bağlantı yapılandırması
-├── app.js              # Uygulama ana giriş noktası (Express)
-├── .env                # Ortam değişkenleri (Gizli bilgiler)
-└── ER_Diyagrami.png    # Veritabanı mimarisi
-
-```
 
 ## 🛠️ Kurulum Adımları
 
