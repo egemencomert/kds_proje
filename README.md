@@ -88,7 +88,7 @@ npm start
 
 Projenin veritabanı tasarımına ve tablolar arası ilişkilere aşağıdaki görselden ulaşabilirsiniz:
 
-![ER Diyagramı](./kds_proje/ER_Diyagrami.png)
+![ER Diyagramı](./egelojistik/ER_Diyagrami.png)
 
 
 ---
