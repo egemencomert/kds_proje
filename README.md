@@ -95,6 +95,6 @@ Projenin veritabanı tasarımına ve tablolar arası ilişkilere aşağıdaki g�
 
 ## 👨‍💻 Hazırlayan
 
-* **Egemen Cömert** - [GitHub Profilim](https://www.google.com/search?q=https://github.com/egemencomert)
+* **Egemen Cömert** - [GitHub Profilim](https://github.com/egemencomert)
 
 ---
