@@ -1,12 +1,6 @@
-Tamamdır, GitHub deponu inceledim. Projen bir **Node.js** uygulaması, **MySQL** veritabanı kullanıyor ve `db.js` üzerinden bağlantı sağlıyor. `package.json` dosmandaki bağımlılıklara (`express`, `mysql2`, `dotenv`, `ejs`) göre her şeyi yerli yerine koydum.
-
-Aşağıdaki metni olduğu gibi kopyalayıp `README.md` dosyanın içine yapıştırabilirsin. Tüm eksikleri giderdim, yazım hatalarını düzelttim ve SQL yapına göre özelleştirdim.
-
----
-
 # 🚛 Lojistik Filo ve Sefer Yönetimi - Karar Destek Sistemi (KDS)
 
-Bu proje, bir lojistik firmasının araç filosunu yönetmek, sefer maliyetlerini analiz etmek ve operasyonel kararları veri odaklı bir şekilde optimize etmek için geliştirilmiş bir **Karar Destek Sistemi** uygulamasıdır.
+Bu proje, Ege lojistik firmasının araç filosunu yönetmek, sefer maliyetlerini analiz etmek ve operasyonel kararları veri odaklı bir şekilde optimize etmek için geliştirilmiş bir **Karar Destek Sistemi** uygulamasıdır.
 
 ## 📝 Proje Açıklaması
 
